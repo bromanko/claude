@@ -1,5 +1,7 @@
 # /jj:commit
 
+allowed-tools: Bash(jj:*)
+
 Analyze jj status and create logical commits with good messages.
 
 ## Usage
