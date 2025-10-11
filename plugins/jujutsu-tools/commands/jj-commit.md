@@ -35,6 +35,10 @@ When invoked:
    - Use imperative mood in messages
    - Create commits linearly, one after another
 6. Never use interactive commands (`jj commit` without `-m`, `jj split` without paths)
+7. After creating commits, show the result using:
+   ```
+   jj log -r @ -T 'concat(change_id.short(), ": ", description)' --no-graph
+   ```
 
 ## Notes
 
