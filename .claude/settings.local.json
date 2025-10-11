@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(jj diff:*)",
+      "Bash(jj log:*)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}

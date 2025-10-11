@@ -1,0 +1,11 @@
+{
+  "name": "jujutsu-tools",
+  "version": "1.0.0",
+  "description": "Tools and commands for working with Jujutsu (jj) version control",
+  "author": {
+    "name": "bromanko",
+    "email": "hello@bromanko.com"
+  },
+  "keywords": ["jujutsu", "jj", "vcs", "version-control"],
+  "commands": ["./commands/"]
+}
