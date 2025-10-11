@@ -1,0 +1,12 @@
+{
+  "name": "bromanko-for-claude",
+  "owner": {
+    "name": "bromanko",
+    "email": "hello@bromanko.com"
+  },
+  "metadata": {
+    "description": "A collection of Claude Code plugins",
+    "version": "1.0.0"
+  },
+  "plugins": []
+}
