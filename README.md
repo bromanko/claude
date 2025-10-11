@@ -18,7 +18,7 @@ Add this marketplace to your Claude Code installation:
 
 ## Available plugins
 
-### jujutsu-tools
+### jj
 Tools and commands for working with Jujutsu (jj) version control.
 
 **Commands:**
@@ -26,7 +26,7 @@ Tools and commands for working with Jujutsu (jj) version control.
 
 **Installation:**
 ```shell
-/plugin install jujutsu-tools@bromanko-for-claude
+/plugin install jj@bromanko-for-claude
 ```
 
 **Keywords:** jujutsu, jj, vcs, version-control
