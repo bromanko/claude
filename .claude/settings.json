@@ -1,0 +1,17 @@
+{
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Write|Edit",
+        "pathMatcher": ".claude-plugin/marketplace.json|plugins/.*/plugin.json",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "claude plugin validate .",
+            "description": "Validate plugin marketplace configuration"
+          }
+        ]
+      }
+    ]
+  }
+}
