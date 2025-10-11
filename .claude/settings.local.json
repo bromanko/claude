@@ -1,11 +1,6 @@
 {
   "permissions": {
-    "allow": [
-      "Bash(jj diff:*)",
-      "Bash(jj log:*)",
-      "Bash(claude plugin validate .)",
-      "Bash(jj status:*)"
-    ],
+    "allow": ["Bash(claude plugin validate .)"],
     "deny": [],
     "ask": []
   }
