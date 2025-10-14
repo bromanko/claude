@@ -1,5 +1,6 @@
 ---
 allowed-tools: Bash(jj:*)
+
 ---
 
 # /jj:commit
@@ -41,14 +42,24 @@ When invoked:
      - Functional relationships
      - Scope (single feature, bug fix, refactoring, etc.)
    - Create commits using non-interactive commands:
-     - Use `jj commit -m "message"` for each logical group
+     - **CRITICAL**: When creating multiple commits from a working copy, you MUST specify files explicitly
+     - Use `jj commit -m "message" path/to/file1 path/to/file2` for each logical group
+     - **NEVER** run `jj commit -m "message"` without file paths when you intend to create multiple commits
+     - Running `jj commit` without file arguments commits ALL working copy changes, leaving nothing for subsequent commits
      - Follow conventional commit format
      - Use imperative mood in messages
      - Create commits linearly, one after another
 6. Never use interactive commands (`jj commit` without `-m`, `jj split` without paths)
-7. After creating commits, show the result using:
+7. After creating commits, ensure all branches are merged:
+   - Check for any dangling branches: `jj log -r 'heads(all()) & ~@' -T change_id.short()`
+   - If there are any heads other than @, merge them into the working copy:
+     ```bash
+     jj new $(jj log -r 'heads(all())' -T 'change_id.short() ++ " "')
+     ```
+   - This ensures all commits are merged into the current working copy and there are no dangling branches
+8. After creating and merging commits, show the result using:
    ```
-   jj log -r @ -T 'concat(change_id.short(), ": ", description)' --no-graph
+   jj log -r 'ancestors(@, 5)' -T 'concat(change_id.short(), ": ", description)'
    ```
 
 ## Notes
@@ -57,3 +68,4 @@ When invoked:
 - Uses non-interactive workflow only
 - Creates descriptive, atomic commits
 - Follows the user's commit style preferences
+- **Important jujutsu behavior**: `jj commit -m "message"` without file arguments commits ALL working copy changes at once. This is fundamentally different from git's incremental staging model. To create multiple commits from a single working copy, always specify file paths: `jj commit -m "message" file1 file2`
