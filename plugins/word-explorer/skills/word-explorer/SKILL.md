@@ -60,7 +60,8 @@ Output mode: content
 - Search Project Gutenberg (`gutenberg.org`) for usage in classic literature
 - Look for examples from respected authors (Milton, Shakespeare, Austen, Dickens, Emerson, etc.)
 - Search for contemporary usage examples from quality publications when relevant
-- Prioritize memorable, quotable examples that illuminate the word's meaning
+- **Prioritize examples that are evocative, amusing, or showcase wordplay**
+- Select quotations that are memorable and demonstrate the word's character, not just its definition
 
 **Search query formats:**
 ```
@@ -108,7 +109,8 @@ Format the response in an engaging, conversational style with these elements:
 4. **Usage context**: Explain when/where the word is commonly used
    - Example: "People are fond of caviling so you'll find plenty of use for this one."
 
-5. **Literary examples**: Include 1-3 quotations showing the word in use
+5. **Literary examples**: Include 1-2 quotations showing the word in use
+   - **Select quotes that are evocative, amusing, or demonstrate wordplay**
    - Always include proper attribution: author, work, and line/chapter/page numbers when available
    - Introduce each quotation with context or a memorable connection
    - Example: "Think of the following line from Milton next time you hear someone complaining about their seat at the theater: 'Wilt thou enjoy the good, Then cavil the conditions?' (x. 759, Paradise Lost)"
@@ -126,15 +128,17 @@ Format the response in an engaging, conversational style with these elements:
 - Make connections to everyday situations where the word applies
 - Avoid academic dryness; aim for engaging prose that makes the word memorable
 - Feel free to add personality and wit where appropriate
+- **Keep it concise**: aim for 200-300 words total—every sentence should earn its place
 
 ## Quality Standards
 
 - Always cite sources properly (author, work, location when available)
 - Verify quotations are accurate before including them
 - Prefer original, authoritative sources over secondary references
-- Include at least one literary example; two or more is ideal
-- Ensure the profile is substantive (200-400 words typically)
+- Include at least one literary example that is evocative, amusing, or demonstrates wordplay
+- **Keep profiles concise: 200-300 words maximum**
 - Make the word memorable—users should be able to recall and use it after reading
+- Prioritize quality over quantity—one perfect quote beats three mediocre ones
 
 ## Example Output
 
