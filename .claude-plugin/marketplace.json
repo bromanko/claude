@@ -19,6 +19,17 @@
         "email": "hello@bromanko.com"
       },
       "keywords": ["jujutsu", "jj", "vcs", "version-control"]
+    },
+    {
+      "name": "word-explorer",
+      "source": "./plugins/word-explorer",
+      "description": "Comprehensive word exploration with dictionary definitions, etymology, and literary examples",
+      "version": "1.0.0",
+      "author": {
+        "name": "bromanko",
+        "email": "hello@bromanko.com"
+      },
+      "keywords": ["dictionary", "words", "etymology", "literature", "language"]
     }
   ]
 }

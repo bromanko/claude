@@ -1,0 +1,11 @@
+{
+  "name": "word-explorer",
+  "version": "1.0.0",
+  "description": "Comprehensive word exploration with dictionary definitions, etymology, and literary examples",
+  "author": {
+    "name": "bromanko",
+    "email": "hello@bromanko.com"
+  },
+  "keywords": ["dictionary", "words", "etymology", "literature", "language"],
+  "skills": ["./skills/"]
+}
