@@ -28,9 +28,11 @@ When the user provides a word, follow this process:
 Check if the file `websters-1913.txt` exists in the skill directory. If it doesn't exist, download it:
 
 ```bash
-curl -L -o /Users/bromanko/.claude/skills/word-explorer/websters-1913.txt \
+curl -L -o ./plugins/word-explorer/skills/word-explorer/websters-1913.txt \
   https://raw.githubusercontent.com/adambom/dictionary/master/dictionary.txt
 ```
+
+(This downloads the dictionary to the skill's directory, keeping everything self-contained and portable.)
 
 **Then search the local dictionary:**
 
@@ -43,7 +45,7 @@ Use the Grep tool to search for the word in the local dictionary file:
 **Example:**
 ```
 Grep with pattern: "^Serendipity"
-File: /Users/bromanko/.claude/skills/word-explorer/websters-1913.txt
+File: ./plugins/word-explorer/skills/word-explorer/websters-1913.txt
 Output mode: content
 -A: 15
 ```
