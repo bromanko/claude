@@ -30,6 +30,17 @@
         "email": "hello@bromanko.com"
       },
       "keywords": ["dictionary", "words", "etymology", "literature", "language"]
+    },
+    {
+      "name": "fp-ts",
+      "source": "./plugins/fp-ts",
+      "description": "Master typed functional programming in TypeScript with fp-ts library guidance",
+      "version": "1.0.0",
+      "author": {
+        "name": "bromanko",
+        "email": "hello@bromanko.com"
+      },
+      "keywords": ["fp-ts", "functional-programming", "typescript", "either", "option", "task"]
     }
   ]
 }
