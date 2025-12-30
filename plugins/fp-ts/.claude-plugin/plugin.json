@@ -1,0 +1,11 @@
+{
+  "name": "fp-ts",
+  "version": "1.0.0",
+  "description": "Master typed functional programming in TypeScript with fp-ts library guidance",
+  "author": {
+    "name": "bromanko",
+    "email": "hello@bromanko.com"
+  },
+  "keywords": ["fp-ts", "functional-programming", "typescript", "either", "option", "task"],
+  "skills": ["./skills/"]
+}
