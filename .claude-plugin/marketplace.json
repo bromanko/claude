@@ -41,6 +41,17 @@
         "email": "hello@bromanko.com"
       },
       "keywords": ["fp-ts", "functional-programming", "typescript", "either", "option", "task"]
+    },
+    {
+      "name": "zinsser-writing",
+      "source": "./plugins/zinsser-writing",
+      "description": "Expert writing guidance based on William Zinsser's 'On Writing Well' principles of clarity, simplicity, and humanity",
+      "version": "1.0.0",
+      "author": {
+        "name": "bromanko",
+        "email": "hello@bromanko.com"
+      },
+      "keywords": ["writing", "editing", "nonfiction", "zinsser", "clarity", "style"]
     }
   ]
 }
