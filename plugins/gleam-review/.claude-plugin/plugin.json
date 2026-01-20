@@ -1,0 +1,11 @@
+{
+  "name": "gleam-review",
+  "version": "1.0.0",
+  "description": "Gleam-specific code review skills for quality, security, performance, and testing",
+  "author": {
+    "name": "bromanko",
+    "email": "hello@bromanko.com"
+  },
+  "keywords": ["gleam", "code-review", "security", "performance", "testing", "beam"],
+  "skills": ["./skills/"]
+}
