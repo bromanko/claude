@@ -52,6 +52,17 @@
         "email": "hello@bromanko.com"
       },
       "keywords": ["writing", "editing", "nonfiction", "zinsser", "clarity", "style"]
+    },
+    {
+      "name": "gleam-review",
+      "source": "./plugins/gleam-review",
+      "description": "Gleam-specific code review skills for quality, security, performance, and testing",
+      "version": "1.0.0",
+      "author": {
+        "name": "bromanko",
+        "email": "hello@bromanko.com"
+      },
+      "keywords": ["gleam", "code-review", "security", "performance", "testing", "beam"]
     }
   ]
 }
