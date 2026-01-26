@@ -1,0 +1,17 @@
+{
+  "description": "Prevent mutating git commands in jujutsu repositories",
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash ${CLAUDE_PLUGIN_ROOT}/hooks/block-git-mutating.sh",
+            "timeout": 5
+          }
+        ]
+      }
+    ]
+  }
+}

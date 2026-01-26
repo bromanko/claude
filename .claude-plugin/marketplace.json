@@ -13,7 +13,7 @@
       "name": "jj",
       "source": "./plugins/jj",
       "description": "Tools and commands for working with Jujutsu (jj) version control",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "author": {
         "name": "bromanko",
         "email": "hello@bromanko.com"
