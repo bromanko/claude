@@ -23,6 +23,11 @@ is_jj_repo() {
 
 # Only check git commands if we're in a jujutsu repo
 if [ -n "$cwd" ] && is_jj_repo "$cwd"; then
+  # Skip if this is a jj git subcommand (jj git fetch, jj git push, etc.)
+  if echo "$command" | grep -qE '\bjj\s+git\b'; then
+    exit 0
+  fi
+
   # Check for mutating git commands
   if echo "$command" | grep -qE '\bgit\s+(commit|branch|checkout|switch|merge|rebase|reset|stash|add|stage|push|fetch|pull)\b'; then
     cat >&2 <<'EOF'
