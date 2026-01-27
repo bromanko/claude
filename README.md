@@ -23,13 +23,70 @@ Tools and commands for working with Jujutsu (jj) version control.
 
 **Commands:**
 - `/jj:commit` - Analyze jj status and create logical commits with descriptive messages
+- `/jj:workspace-cleanup` - Clean up empty jujutsu workspaces
+
+**Hooks:**
+- Blocks mutating git commands in jujutsu repositories, guiding you to jj equivalents
 
 **Installation:**
 ```shell
 /plugin install jj@bromanko-for-claude
 ```
 
-**Keywords:** jujutsu, jj, vcs, version-control
+---
+
+### word-explorer
+Comprehensive word exploration with dictionary definitions, etymology, and literary examples.
+
+**Skills:**
+- `word-explorer` - Provides word profiles combining Webster's 1913 definitions, literary quotations, and usage guidance
+
+**Installation:**
+```shell
+/plugin install word-explorer@bromanko-for-claude
+```
+
+---
+
+### fp-ts
+Master typed functional programming in TypeScript with fp-ts library guidance.
+
+**Skills:**
+- `fp-ts` - Expert guidance for Option, Either, Task, TaskEither, and functional composition patterns
+
+**Installation:**
+```shell
+/plugin install fp-ts@bromanko-for-claude
+```
+
+---
+
+### zinsser-writing
+Expert writing guidance based on William Zinsser's "On Writing Well" principles.
+
+**Skills:**
+- `zinsser-writing` - Writing and critiquing guidance emphasizing clarity, simplicity, and humanity
+
+**Installation:**
+```shell
+/plugin install zinsser-writing@bromanko-for-claude
+```
+
+---
+
+### gleam-review
+Gleam-specific code review skills for quality, security, performance, and testing.
+
+**Skills:**
+- `code-review` - Quality and idiom analysis for Gleam code
+- `security-review` - Security audit focusing on FFI safety, input validation, and dependencies
+- `performance-review` - BEAM runtime optimization analysis
+- `test-review` - Test coverage and quality assessment
+
+**Installation:**
+```shell
+/plugin install gleam-review@bromanko-for-claude
+```
 
 ## Using plugins
 
