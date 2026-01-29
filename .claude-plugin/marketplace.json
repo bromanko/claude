@@ -63,6 +63,16 @@
         "email": "hello@bromanko.com"
       },
       "keywords": ["gleam", "code-review", "security", "performance", "testing", "beam"]
+    },
+    {
+      "name": "tmux-titles",
+      "source": "./plugins/tmux-titles",
+      "description": "Updates tmux window title with Claude Code status indicators showing current activity",
+      "version": "1.2.0",
+      "author": {
+        "name": "Craig Motlin"
+      },
+      "keywords": ["tmux", "status", "window-title"]
     }
   ]
 }
