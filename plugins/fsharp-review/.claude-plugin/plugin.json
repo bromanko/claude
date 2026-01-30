@@ -1,0 +1,11 @@
+{
+  "name": "fsharp-review",
+  "version": "1.0.0",
+  "description": "F#-specific code review skills for quality, security, performance, and testing",
+  "author": {
+    "name": "bromanko",
+    "email": "hello@bromanko.com"
+  },
+  "keywords": ["fsharp", "dotnet", "code-review", "security", "performance", "testing"],
+  "skills": ["./skills/"]
+}
