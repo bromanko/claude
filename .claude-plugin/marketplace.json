@@ -9,70 +9,11 @@
     "version": "1.0.0"
   },
   "plugins": [
-    {
-      "name": "jj",
-      "source": "./plugins/jj",
-      "description": "Tools and commands for working with Jujutsu (jj) version control",
-      "version": "1.1.0",
-      "author": {
-        "name": "bromanko",
-        "email": "hello@bromanko.com"
-      },
-      "keywords": ["jujutsu", "jj", "vcs", "version-control"]
-    },
-    {
-      "name": "word-explorer",
-      "source": "./plugins/word-explorer",
-      "description": "Comprehensive word exploration with dictionary definitions, etymology, and literary examples",
-      "version": "1.0.0",
-      "author": {
-        "name": "bromanko",
-        "email": "hello@bromanko.com"
-      },
-      "keywords": ["dictionary", "words", "etymology", "literature", "language"]
-    },
-    {
-      "name": "fp-ts",
-      "source": "./plugins/fp-ts",
-      "description": "Master typed functional programming in TypeScript with fp-ts library guidance",
-      "version": "1.0.0",
-      "author": {
-        "name": "bromanko",
-        "email": "hello@bromanko.com"
-      },
-      "keywords": ["fp-ts", "functional-programming", "typescript", "either", "option", "task"]
-    },
-    {
-      "name": "zinsser-writing",
-      "source": "./plugins/zinsser-writing",
-      "description": "Expert writing guidance based on William Zinsser's 'On Writing Well' principles of clarity, simplicity, and humanity",
-      "version": "1.0.0",
-      "author": {
-        "name": "bromanko",
-        "email": "hello@bromanko.com"
-      },
-      "keywords": ["writing", "editing", "nonfiction", "zinsser", "clarity", "style"]
-    },
-    {
-      "name": "gleam-review",
-      "source": "./plugins/gleam-review",
-      "description": "Gleam-specific code review skills for quality, security, performance, and testing",
-      "version": "1.0.0",
-      "author": {
-        "name": "bromanko",
-        "email": "hello@bromanko.com"
-      },
-      "keywords": ["gleam", "code-review", "security", "performance", "testing", "beam"]
-    },
-    {
-      "name": "tmux-titles",
-      "source": "./plugins/tmux-titles",
-      "description": "Updates tmux window title with Claude Code status indicators showing current activity",
-      "version": "1.2.0",
-      "author": {
-        "name": "Craig Motlin"
-      },
-      "keywords": ["tmux", "status", "window-title"]
-    }
+    { "name": "jj", "source": "./plugins/jj" },
+    { "name": "word-explorer", "source": "./plugins/word-explorer" },
+    { "name": "fp-ts", "source": "./plugins/fp-ts" },
+    { "name": "zinsser-writing", "source": "./plugins/zinsser-writing" },
+    { "name": "gleam-review", "source": "./plugins/gleam-review" },
+    { "name": "tmux-titles", "source": "./plugins/tmux-titles" }
   ]
 }
