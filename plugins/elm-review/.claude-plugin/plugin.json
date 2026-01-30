@@ -1,0 +1,11 @@
+{
+  "name": "elm-review",
+  "version": "1.0.0",
+  "description": "Elm-specific code review skills for quality, security, performance, and testing",
+  "author": {
+    "name": "bromanko",
+    "email": "hello@bromanko.com"
+  },
+  "keywords": ["elm", "code-review", "security", "performance", "testing", "frontend"],
+  "skills": ["./skills/"]
+}
