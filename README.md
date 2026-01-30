@@ -88,6 +88,38 @@ Gleam-specific code review skills for quality, security, performance, and testin
 /plugin install gleam-review@bromanko-for-claude
 ```
 
+---
+
+### fsharp-review
+F#-specific code review skills for quality, security, performance, and testing.
+
+**Skills:**
+- `code-review` - Quality and idiom analysis for F# code
+- `security-review` - Security audit focusing on .NET interop, serialization, input validation, and dependencies
+- `performance-review` - .NET runtime optimization analysis (allocations, async, collections)
+- `test-review` - Test coverage and quality assessment (Expecto, xUnit, FsCheck)
+
+**Installation:**
+```shell
+/plugin install fsharp-review@bromanko-for-claude
+```
+
+---
+
+### elm-review
+Elm-specific code review skills for quality, security, performance, and testing.
+
+**Skills:**
+- `code-review` - Quality and idiom analysis for Elm code (TEA, type design, decoders)
+- `security-review` - Security audit focusing on port safety, JSON validation, and XSS prevention
+- `performance-review` - Virtual DOM rendering and data structure optimization analysis
+- `test-review` - Test coverage and quality assessment (elm-test, fuzz testing, Test.Html)
+
+**Installation:**
+```shell
+/plugin install elm-review@bromanko-for-claude
+```
+
 ## Using plugins
 
 After installing a plugin:
