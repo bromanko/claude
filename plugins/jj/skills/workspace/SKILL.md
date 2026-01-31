@@ -85,8 +85,11 @@ WORKSPACE RULES:
 - Your working directory is: <absolute-workspace-path>
 - ALWAYS cd to your working directory before doing any work
 - Use `jj` for all version control. NEVER use `git` commands.
-- Commit your work before finishing. Do not leave uncommitted changes.
+- Commit incrementally as you work. Each logical unit of change (e.g., a
+  single file refactored, a function added, a bug fixed) should be its own
+  commit. Small, focused commits make rebases and conflict resolution easier.
   Use `jj commit -m "message"` with conventional commit format.
+- Do not leave uncommitted changes when you are done.
 - Do NOT run `jj workspace add`, `jj workspace forget`, or `rm -rf`.
   Workspace lifecycle is managed externally.
 - The full repo history is available via `jj log`.
