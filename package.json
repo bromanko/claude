@@ -1,0 +1,19 @@
+{
+  "name": "@bromanko/pi-packages",
+  "version": "1.0.0",
+  "description": "Pi extensions, skills, and tools",
+  "keywords": ["pi-package"],
+  "author": {
+    "name": "bromanko",
+    "email": "hello@bromanko.com"
+  },
+  "pi": {
+    "extensions": [
+      "./packages/jj/extensions",
+      "./packages/tmux-titles/extensions"
+    ],
+    "skills": [
+      "./shared/skills"
+    ]
+  }
+}
