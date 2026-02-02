@@ -5,20 +5,8 @@
  * running inside a jj repo, guiding the user to jj equivalents.
  */
 
-import { existsSync } from "node:fs";
-import { dirname, join } from "node:path";
 import type { ExtensionAPI } from "@mariozechner/pi-coding-agent";
-
-function isJjRepo(dir: string): boolean {
-  let current = dir;
-  while (current !== "/") {
-    if (existsSync(join(current, ".jj"))) return true;
-    const parent = dirname(current);
-    if (parent === current) break;
-    current = parent;
-  }
-  return false;
-}
+import { isJjRepo } from "./utils.ts";
 
 const MUTATING_GIT_PATTERN =
   /(^|&&|\|\||;|\|)\s*git\s+(commit|branch|checkout|switch|merge|rebase|reset|stash|add|stage|push|fetch|pull)\b/;

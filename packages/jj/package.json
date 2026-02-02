@@ -9,6 +9,9 @@
   },
   "pi": {
     "extensions": ["./extensions"],
-    "skills": ["../../shared/skills/workspace"]
+    "skills": [
+      "../../shared/skills/workspace",
+      "../../shared/skills/jj-commit"
+    ]
   }
 }
