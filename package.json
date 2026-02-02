@@ -10,7 +10,8 @@
   "pi": {
     "extensions": [
       "./packages/jj/extensions",
-      "./packages/tmux-titles/extensions"
+      "./packages/tmux-titles/extensions",
+      "./packages/code-review/extensions"
     ],
     "skills": [
       "./shared/skills"
