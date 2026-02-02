@@ -7,7 +7,6 @@
     "email": "hello@bromanko.com"
   },
   "keywords": ["jujutsu", "jj", "vcs", "version-control", "workspace", "agent"],
-  "commands": ["./commands/"],
   "hooks": ["./hooks/"],
   "skills": ["./skills/"]
 }
