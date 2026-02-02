@@ -6,7 +6,7 @@
  */
 
 import type { ExtensionAPI } from "@mariozechner/pi-coding-agent";
-import { isJjRepo } from "./utils.ts";
+import { isJjRepo } from "../lib/utils.ts";
 
 const MUTATING_GIT_PATTERN =
   /(^|&&|\|\||;|\|)\s*git\s+(commit|branch|checkout|switch|merge|rebase|reset|stash|add|stage|push|fetch|pull)\b/;

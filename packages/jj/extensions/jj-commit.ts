@@ -5,7 +5,7 @@
  */
 
 import type { ExtensionAPI } from "@mariozechner/pi-coding-agent";
-import { isJjRepo } from "./utils.ts";
+import { isJjRepo } from "../lib/utils.ts";
 
 export default function (pi: ExtensionAPI) {
   pi.registerCommand("jj:commit", {
