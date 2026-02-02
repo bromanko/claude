@@ -1,5 +1,6 @@
 # Large dictionary files
 plugins/word-explorer/skills/word-explorer/websters-1913.txt
+shared/skills/word-explorer/websters-1913.txt
 
 # Local settings
 .claude/settings.local.json
