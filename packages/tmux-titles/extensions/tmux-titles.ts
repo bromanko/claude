@@ -1,157 +1,103 @@
 /**
  * tmux-titles — Update tmux window title with pi status indicators.
  *
- * Shows the current agent state as a colored icon in the tmux window name:
+ * Shows the current agent state as an icon in the tmux window name:
  *
- *   ○  idle (blue)       — session started, waiting for input
- *   ✻  thinking (yellow) — agent is working
- *   $  bash (cyan)       — running a shell command
- *   ✎  editing (yellow)  — writing/editing files
- *   …  reading (grey)    — reading files
- *   ?  waiting (magenta) — permission prompt / user input needed
- *   ⌫  compacting (grey) — context compaction in progress
- *   ✓  done (green)      — agent finished
+ *   ○  idle        — session started, waiting for input
+ *   ✻  thinking    — agent is working
+ *   $  bash        — running a shell command
+ *   ✎  editing     — writing/editing files
+ *   …  reading     — reading files
+ *   ⌫  compacting  — context compaction in progress
+ *   ✓  done        — agent finished
+ *
+ * Uses tmux escape sequences (\033k...\033\\) written directly to the
+ * TTY, so it works both locally inside tmux and over SSH into VMs.
+ * Requires `allow-rename on` in tmux config.
  *
  * Configuration via environment variables:
- *   TMUX_TITLES_MODE     — "directory" (default) uses cwd basename,
- *                          "window" preserves existing window name
  *   TMUX_TITLES_POSITION — "suffix" (default) or "prefix"
  */
 
-import { execSync } from "node:child_process";
+import { openSync, writeSync, closeSync } from "node:fs";
 import { basename } from "node:path";
 import type { ExtensionAPI } from "@mariozechner/pi-coding-agent";
 
 function inTmux(): boolean {
-  return !!(process.env.TMUX && process.env.TMUX_PANE);
+  const term = process.env.TERM ?? "";
+  return !!(
+    process.env.TMUX ||
+    process.env.TERM_PROGRAM === "tmux" ||
+    term.startsWith("tmux") ||
+    term === "screen"
+  );
 }
 
-function getTarget(): string | null {
+function writeToTty(data: string): void {
+  const ttyPath = process.env.SSH_TTY || "/dev/tty";
   try {
-    const result = execSync(
-      `tmux display-message -p -t "${process.env.TMUX_PANE}" "#{session_id}:#{window_id}"`,
-      { encoding: "utf-8", timeout: 2000 },
-    ).trim();
-    return result || null;
+    const fd = openSync(ttyPath, "w");
+    try {
+      writeSync(fd, data);
+    } finally {
+      closeSync(fd);
+    }
   } catch {
-    return null;
+    // TTY not available — ignore
   }
 }
 
-function getCurrentWindowName(target: string): string {
-  try {
-    return execSync(
-      `tmux display-message -p -t "${target}" "#{window_name}"`,
-      { encoding: "utf-8", timeout: 2000 },
-    ).trim();
-  } catch {
-    return "";
-  }
-}
-
-const ICON_PATTERN = /^(#\[fg=[a-z0-9]+\])?[✻✓○?⌫$✎…] /;
-const ICON_PATTERN_SUFFIX = / (#\[fg=[a-z0-9]+\])?[✻✓○?⌫$✎…]$/;
-
-function stripIcon(name: string): string {
-  return name.replace(ICON_PATTERN, "").replace(ICON_PATTERN_SUFFIX, "");
-}
-
-function setTitle(icon: string, color: string, cwd: string): void {
+function setTitle(icon: string, cwd: string): void {
   if (!inTmux()) return;
 
-  const target = getTarget();
-  if (!target) return;
-
-  const mode = process.env.TMUX_TITLES_MODE ?? "directory";
+  const base = basename(cwd);
   const position = process.env.TMUX_TITLES_POSITION ?? "suffix";
-
-  const baseName =
-    mode === "window"
-      ? stripIcon(getCurrentWindowName(target))
-      : basename(cwd);
-
-  const indicator = `#[fg=${color}]${icon}`;
   const title =
-    position === "prefix"
-      ? `${indicator} ${baseName}`
-      : `${baseName} ${indicator}`;
+    position === "prefix" ? `${icon} ${base}` : `${base} ${icon}`;
 
-  try {
-    execSync(`tmux rename-window -t "${target}" "${title}"`, {
-      timeout: 2000,
-    });
-  } catch {
-    // Ignore — tmux may have gone away
-  }
+  writeToTty(`\x1bk${title}\x1b\\`);
 }
 
 function clearTitle(): void {
   if (!inTmux()) return;
-
-  const target = getTarget();
-  if (!target) return;
-
-  const baseName = stripIcon(getCurrentWindowName(target));
-
-  try {
-    execSync(`tmux rename-window -t "${target}" "${baseName}"`, {
-      timeout: 2000,
-    });
-  } catch {
-    // Ignore
-  }
+  writeToTty(`\x1bkbash\x1b\\`);
 }
 
-function toolIcon(toolName: string): { icon: string; color: string } {
-  switch (toolName) {
-    case "bash":
-      return { icon: "$", color: "cyan" };
-    case "write":
-    case "edit":
-      return { icon: "✎", color: "yellow" };
-    case "read":
-    case "grep":
-    case "find":
-    case "ls":
-      return { icon: "…", color: "colour245" };
-    default:
-      return { icon: "✻", color: "yellow" };
-  }
-}
+const TOOL_ICONS: Record<string, string> = {
+  bash: "$",
+  write: "✎",
+  edit: "✎",
+  read: "…",
+  grep: "…",
+  find: "…",
+  ls: "…",
+};
 
 export default function (pi: ExtensionAPI) {
-  // Session started — idle
   pi.on("session_start", async (_event, ctx) => {
-    setTitle("○", "blue", ctx.cwd);
+    setTitle("○", ctx.cwd);
   });
 
-  // User submitted a prompt — thinking
   pi.on("agent_start", async (_event, ctx) => {
-    setTitle("✻", "yellow", ctx.cwd);
+    setTitle("✻", ctx.cwd);
   });
 
-  // Agent finished — done
   pi.on("agent_end", async (_event, ctx) => {
-    setTitle("✓", "green", ctx.cwd);
+    setTitle("✓", ctx.cwd);
   });
 
-  // Tool starting — show tool-specific icon
   pi.on("tool_call", async (event, ctx) => {
-    const { icon, color } = toolIcon(event.toolName);
-    setTitle(icon, color, ctx.cwd);
+    setTitle(TOOL_ICONS[event.toolName] ?? "✻", ctx.cwd);
   });
 
-  // Tool finished — back to thinking
   pi.on("tool_result", async (_event, ctx) => {
-    setTitle("✻", "yellow", ctx.cwd);
+    setTitle("✻", ctx.cwd);
   });
 
-  // Compaction starting
   pi.on("session_before_compact", async (_event, ctx) => {
-    setTitle("⌫", "colour245", ctx.cwd);
+    setTitle("⌫", ctx.cwd);
   });
 
-  // Session ending — clear the icon
   pi.on("session_shutdown", async () => {
     clearTitle();
   });
