@@ -4,3 +4,6 @@ shared/skills/word-explorer/websters-1913.txt
 
 # Local settings
 .claude/settings.local.json
+
+# Nix / direnv
+.direnv/

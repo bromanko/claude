@@ -1,0 +1,74 @@
+# SelfCI Configuration
+# Validates pi extensions and Claude plugin marketplace.
+
+job:
+  command: |
+    set -eou pipefail
+
+    selfci step start "Validate Claude plugins"
+    claude plugin validate .
+    echo "Marketplace validation passed"
+
+    selfci step start "Validate pi extensions"
+
+    # Collect extension directories from package.json and project-local .pi/extensions
+    ext_dirs=$(node -e "
+      const pkg = require('./package.json');
+      const dirs = pkg.pi?.extensions || [];
+      dirs.forEach(d => console.log(d));
+    ")
+
+    # Find all .ts extension files
+    ext_files=""
+    for dir in $ext_dirs; do
+      if [ -d "$dir" ]; then
+        for f in "$dir"/*.ts; do
+          [ -f "$f" ] && ext_files="$ext_files $f"
+        done
+      elif [ -f "$dir" ]; then
+        ext_files="$ext_files $dir"
+      fi
+    done
+
+    # Also include project-local extensions (.pi/extensions/)
+    if [ -d ".pi/extensions" ]; then
+      for f in .pi/extensions/*.ts; do
+        [ -f "$f" ] && ext_files="$ext_files $f"
+      done
+    fi
+
+    if [ -z "$ext_files" ]; then
+      echo "No extension files found"
+      exit 1
+    fi
+
+    # Build the -e flags for pi
+    ext_flags=""
+    for f in $ext_files; do
+      ext_flags="$ext_flags -e $f"
+      echo "  Loading: $f"
+    done
+
+    # Use pi --list-models to load extensions without calling an LLM.
+    # --no-extensions disables auto-discovery so we only test our explicit files.
+    # pi logs "Failed to load extension" on errors but still exits 0,
+    # so we capture output and check for failures.
+    output=$(pi --list-models \
+      --no-extensions \
+      --no-skills \
+      --no-prompt-templates \
+      --no-themes \
+      $ext_flags 2>&1)
+    failures=$(echo "$output" | grep -c "Failed to load extension" || true)
+
+    if [ "$failures" -gt 0 ]; then
+      echo ""
+      echo "$output" | grep "Failed to load extension"
+      echo ""
+      echo "ERROR: $failures extension(s) failed to load"
+      exit 1
+    fi
+
+    echo "All extensions loaded successfully"
+
+  clone-mode: partial
