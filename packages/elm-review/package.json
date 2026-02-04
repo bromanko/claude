@@ -9,6 +9,7 @@
   },
   "pi": {
     "skills": [
+      "../../shared/skills/elm-review",
       "../../shared/skills/elm-code-review",
       "../../shared/skills/elm-security-review",
       "../../shared/skills/elm-performance-review",

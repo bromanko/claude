@@ -9,6 +9,7 @@
   },
   "pi": {
     "skills": [
+      "../../shared/skills/gleam-review",
       "../../shared/skills/gleam-code-review",
       "../../shared/skills/gleam-security-review",
       "../../shared/skills/gleam-performance-review",

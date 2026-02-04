@@ -9,6 +9,7 @@
   },
   "pi": {
     "skills": [
+      "../../shared/skills/fsharp-review",
       "../../shared/skills/fsharp-code-review",
       "../../shared/skills/fsharp-security-review",
       "../../shared/skills/fsharp-performance-review",
