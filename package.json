@@ -11,7 +11,8 @@
     "extensions": [
       "./packages/jj/extensions",
       "./packages/tmux-titles/extensions",
-      "./packages/code-review/extensions"
+      "./packages/code-review/extensions",
+      "./shared/extensions"
     ],
     "skills": [
       "./shared/skills"
