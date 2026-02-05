@@ -48,14 +48,8 @@ When invoked:
      - Use imperative mood in messages
      - Create commits linearly, one after another
 6. Never use interactive commands (`jj commit` without `-m`, `jj split` without paths)
-7. After creating commits, ensure all branches are merged:
-   - Check for any dangling branches: `jj log -r 'heads(all()) & ~@' -T change_id.short()`
-   - If there are any heads other than @, merge them into the working copy:
-     ```bash
-     jj new $(jj log -r 'heads(all())' -T 'change_id.short() ++ " "')
-     ```
-   - This ensures all commits are merged into the current working copy and there are no dangling branches
-8. After creating and merging commits, show the result using:
+7. **Do NOT merge unrelated branches or workspaces.** This skill only commits working copy changes. Ignore other heads, bookmarks, or workspaces—they are intentionally separate.
+8. After creating commits, show the result using:
    ```
    jj log -r 'ancestors(@, 5)' -T 'concat(change_id.short(), ": ", description)'
    ```
