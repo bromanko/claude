@@ -5,21 +5,16 @@ description: This skill should be used when the user asks to "review Elm", "full
 
 # Elm Full Review
 
-Run a comprehensive interactive review of Elm code covering code quality, security, performance, and testing.
+**Action required:** Run the `/review elm` command. Do not perform the review manually.
 
-## How to Run
+The `/review` command provides an interactive TUI that:
+- Runs code, security, performance, and test review skills
+- Presents findings one at a time
+- Lets the user choose to fix, skip, or stop for each finding
 
-Use the `/review` command which provides an interactive experience — presenting findings one at a time and letting the user decide what to do with each:
+If the user wants only specific review types, run `/review elm <types>` where types can be: `code`, `security`, `performance`, `test`
 
-```
-/review elm
-```
-
-This runs all four review skills (code, security, performance, testing), collects findings, and walks through them interactively. For each finding the user can choose to fix it, fix with custom instructions, skip, or stop.
-
-To run only specific review types:
-
-```
-/review elm code security
-/review elm test
-```
+Examples:
+- Full review: `/review elm`
+- Code and security only: `/review elm code security`
+- Tests only: `/review elm test`

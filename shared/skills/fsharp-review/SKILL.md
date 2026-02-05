@@ -5,21 +5,16 @@ description: This skill should be used when the user asks to "review F#", "full 
 
 # F# Full Review
 
-Run a comprehensive interactive review of F# code covering code quality, security, performance, and testing.
+**Action required:** Run the `/review fsharp` command. Do not perform the review manually.
 
-## How to Run
+The `/review` command provides an interactive TUI that:
+- Runs code, security, performance, and test review skills
+- Presents findings one at a time
+- Lets the user choose to fix, skip, or stop for each finding
 
-Use the `/review` command which provides an interactive experience — presenting findings one at a time and letting the user decide what to do with each:
+If the user wants only specific review types, run `/review fsharp <types>` where types can be: `code`, `security`, `performance`, `test`
 
-```
-/review fsharp
-```
-
-This runs all four review skills (code, security, performance, testing), collects findings, and walks through them interactively. For each finding the user can choose to fix it, fix with custom instructions, skip, or stop.
-
-To run only specific review types:
-
-```
-/review fsharp code security
-/review fsharp test
-```
+Examples:
+- Full review: `/review fsharp`
+- Code and security only: `/review fsharp code security`
+- Tests only: `/review fsharp test`

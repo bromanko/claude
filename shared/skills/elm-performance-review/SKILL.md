@@ -5,6 +5,12 @@ description: This skill should be used when the user asks to "review performance
 
 # Elm Performance Review
 
+**Action required:** Run `/review elm performance` to start an interactive performance review. Do not perform the review manually.
+
+---
+
+<!-- The content below is used by the /review command as review instructions -->
+
 Analyze Elm code for performance issues, focusing on virtual DOM rendering, lazy evaluation, efficient data handling, and avoiding unnecessary re-renders.
 
 ## Scope Determination

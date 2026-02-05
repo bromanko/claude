@@ -5,6 +5,12 @@ description: This skill should be used when the user asks to "review gleam code"
 
 # Gleam Code Review
 
+**Action required:** Run `/review gleam code` to start an interactive code quality review. Do not perform the review manually.
+
+---
+
+<!-- The content below is used by the /review command as review instructions -->
+
 Perform a thorough code quality review of Gleam code, focusing on idiomatic patterns, proper error handling, and clean architecture.
 
 ## Scope Determination

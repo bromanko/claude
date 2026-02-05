@@ -5,6 +5,12 @@ description: This skill should be used when the user asks to "review Elm code", 
 
 # Elm Code Review
 
+**Action required:** Run `/review elm code` to start an interactive code quality review. Do not perform the review manually.
+
+---
+
+<!-- The content below is used by the /review command as review instructions -->
+
 Perform a thorough code quality review of Elm code, focusing on idiomatic patterns, The Elm Architecture, and clean module design.
 
 ## Scope Determination

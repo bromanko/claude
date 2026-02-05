@@ -3,7 +3,13 @@ name: fsharp-security-review
 description: This skill should be used when the user asks for "security review", "vulnerability scan", "audit F# security", "security audit", "find vulnerabilities", "check for security issues", or wants a deep security analysis of F# code including input validation, .NET interop safety, and dependency concerns.
 ---
 
-# F# Security Review (Deep)
+# F# Security Review
+
+**Action required:** Run `/review fsharp security` to start an interactive security review. Do not perform the review manually.
+
+---
+
+<!-- The content below is used by the /review command as review instructions -->
 
 Perform a comprehensive security audit of F# code, examining input validation, serialization boundaries, secrets handling, and potential vulnerabilities.
 

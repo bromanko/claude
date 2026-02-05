@@ -5,6 +5,12 @@ description: This skill should be used when the user asks to "review performance
 
 # F# Performance Review
 
+**Action required:** Run `/review fsharp performance` to start an interactive performance review. Do not perform the review manually.
+
+---
+
+<!-- The content below is used by the /review command as review instructions -->
+
 Analyze F# code for performance issues, focusing on .NET runtime patterns, allocation behavior, async architecture, and efficient data handling.
 
 ## Scope Determination

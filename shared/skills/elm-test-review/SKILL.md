@@ -5,6 +5,12 @@ description: This skill should be used when the user asks for "test review", "te
 
 # Elm Test Review
 
+**Action required:** Run `/review elm test` to start an interactive test review. Do not perform the review manually.
+
+---
+
+<!-- The content below is used by the /review command as review instructions -->
+
 Analyze Elm test code for coverage gaps, edge case handling, test quality, and testing best practices.
 
 ## Scope Determination

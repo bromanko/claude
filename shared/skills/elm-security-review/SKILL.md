@@ -3,7 +3,13 @@ name: elm-security-review
 description: This skill should be used when the user asks for "security review", "vulnerability scan", "audit Elm security", "security audit", "find vulnerabilities", "check for security issues", or wants a deep security analysis of Elm code including port safety, JSON decoder validation, and XSS prevention.
 ---
 
-# Elm Security Review (Deep)
+# Elm Security Review
+
+**Action required:** Run `/review elm security` to start an interactive security review. Do not perform the review manually.
+
+---
+
+<!-- The content below is used by the /review command as review instructions -->
 
 Perform a comprehensive security audit of Elm code, examining port boundaries, JSON decoder validation, HTML injection prevention, and potential vulnerabilities at the JavaScript interop layer.
 
